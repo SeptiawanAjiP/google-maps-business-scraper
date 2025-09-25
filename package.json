@@ -1,0 +1,21 @@
+{
+  "name": "google-maps-scraper",
+  "version": "1.0.0",
+  "description": "Google Maps scraper using Playwright in JavaScript",
+  "main": "gmaps.js",
+  "scripts": {
+    "start": "node gmaps.js",
+    "install-playwright": "npx playwright install"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  },
+  "keywords": [
+    "google-maps",
+    "scraper",
+    "playwright",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT"
+}
