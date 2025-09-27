@@ -1,7 +1,7 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 
-const query = "Bakso Jakarta";
+const query = "Laundry Jakarta";
 const maxScrolls = 2;
 const scrollPause = 2000; // in milliseconds
 
