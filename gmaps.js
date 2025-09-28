@@ -1,7 +1,15 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 
-const query = "Laundry Jakarta";
+// Function to mask phone numbers for privacy (replace last 4 digits with ****)
+function maskPhoneNumber(phoneNumber) {
+    if (!phoneNumber || phoneNumber.length < 4) {
+        return phoneNumber;
+    }
+    return phoneNumber.slice(0, -4) + '****';
+}
+
+const query = "Cafe Purwokerto";
 const maxScrolls = 2;
 const scrollPause = 2000; // in milliseconds
 
@@ -155,7 +163,6 @@ const scrollPause = 2000; // in milliseconds
                                         (phoneText.includes('08') || phoneText.includes('+62'))) {
                                         phoneNumber = phoneText.trim();
                                         phoneFound = true;
-                                        console.log(`Found phone for ${name}: ${phoneNumber}`);
                                         break;
                                     }
                                 }
@@ -189,7 +196,7 @@ const scrollPause = 2000; // in milliseconds
                     Phone: phoneNumber || ""
                 });
 
-                console.log(`Processed ${i + 1}/${count}: ${name} - Phone: ${phoneNumber || "No phone"}`);
+                console.log(`Processed ${i + 1}/${count}: ${name} - Phone: ${phoneNumber ? maskPhoneNumber(phoneNumber) : "No phone"}`);
 
             } catch (error) {
                 console.log(`Error processing card ${i + 1}:`, error.message);
